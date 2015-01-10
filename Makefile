@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/10 14:11:36 by niccheva          #+#    #+#              #
-#    Updated: 2015/01/10 14:31:33 by niccheva         ###   ########.fr        #
+#    Updated: 2015/01/10 15:21:59 by niccheva         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,13 +22,14 @@ DOBJ			=	./objs/
 
 DINC			=	./includes/
 
-SRC				=	main.cpp
+SRC				=	AEntity.class.cpp					\
+					main.cpp
 
-OBJ				=	$(patsubst %.cpp, $(DOBL)%.o, $(SRC))
+OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
 
 RMF				=	/bin/rm -f
-RMD = /bin/rm -Rf
-MKD = /bin/mkdir -p
+RMD				=	/bin/rm -Rf
+MKD				=	/bin/mkdir -p
 
 all: $(NAME)
 
