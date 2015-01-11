@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:18:13 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 18:47:32 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:45:04 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,6 +16,7 @@
 #include <curses.h>
 #include <iostream>
 #include <unistd.h>
+#include <cstdlib>
 
 #include "AEntity.class.hpp"
 #include "Mobil.class.hpp"

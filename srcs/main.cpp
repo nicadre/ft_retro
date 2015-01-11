@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 19:21:53 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:46:01 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -44,6 +44,7 @@ void	printMap() {
 int		inputPlayer() {
 	t_entity *		curEntity;
 	int		input;
+	static int		timeBefore = time(NULL);
 
 	input = getch();
 	if (input == QUIT)
@@ -57,11 +58,15 @@ int		inputPlayer() {
 		Missil *	missil = new Missil(player->getX() + 1, player->getY());
 		addEntity(&entities, missil);
 	}
+	if (time(NULL) - timeBefore >= 1)
+	{
+		timeBefore = time(NULL);
+		Ennemy *		ennemy = new Ennemy(149, (rand() % (HEIGHT - 1) + 1));
+		addEntity(&entities, ennemy);
+	}
 	curEntity = entities;
 	while (curEntity != NULL)
 	{
-//		curEntity->entity->move(curEntity->entity->getX() + 0.1f,
-//								curEntity->entity->getY());
 		curEntity->entity->move();
 		curEntity = curEntity->next;
 	}
@@ -157,6 +162,7 @@ void			addEntity(t_entity ** list, AEntity * entity) {
 }
 
 int		main() {
+	srand(time(NULL));
 	init();
 	loopGame();
 	endwin();
