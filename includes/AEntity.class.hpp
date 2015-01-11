@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 15:03:32 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/10 18:28:58 by niccheva         ###   ########.fr       //
+//   Updated: 2015/01/11 13:35:47 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,8 +15,8 @@
 
 class AEntity {
 protected:
-	int					_x;
-	int					_y;
+	float				_x;
+	float				_y;
 	char				_form;
 
 	AEntity(void);
@@ -26,11 +26,17 @@ protected:
 
 	virtual ~AEntity(void);
 
-	virtual void		move(int x, int y) = 0;
+	virtual void		move(float x, float y) = 0;
 
-	int					getX(void) const;
-	int					getY(void) const;
+public:
+
+	float				getX(void) const;
+	float				getY(void) const;
 	char				getForm(void) const;
+
+	void				setX(float const x);
+	void				setY(float const y);
+	void				setForm(char const form);
 };
 
 #endif

@@ -6,19 +6,26 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:49:36 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 11:01:13 by niccheva         ###   ########.fr       //
+//   Updated: 2015/01/11 14:35:07 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Player.class.hpp"
+#include "general.hpp"
 
 /* ****************************** Constructors ****************************** */
 
-Player::Player(void) {
+Player::Player(void) : _name("Player1"), _level(1) {
+	this->setX(2.0f);
+	this->setY(HEIGHT / 2);
+	this->setForm('>');
 }
 
 Player::Player(Player const & src) : AShip(src) {
 	*this = src;
+}
+
+Player::Player(std::string const name) : _name(name), _level(1) {
 }
 
 /* ****************************** Destructors ******************************* */
@@ -34,8 +41,15 @@ Player const			&Player::operator=(Player const & rhs) {
 }
 
 void					Player::shoot(void) const {
-	
+
 }
+
+/*void				Mobil::move(float x, float y) {
+	if (x >= 0)
+		this->_x = x;
+	if (y >= 0 )
+		this->_y = y;
+		}*/
 
 std::string				Player::getName(void) const {
 	return (this->_name);

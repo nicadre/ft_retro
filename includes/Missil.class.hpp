@@ -11,6 +11,7 @@ public:
 
 	Missil(void);
 	Missil(Missil const & missil);
+	Missil(float x, float y);
 	~Missil(void);
 
 	Missil &	operator=(Missil const & rhs);

@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:04:13 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 10:06:10 by niccheva         ###   ########.fr       //
+//   Updated: 2015/01/11 13:36:24 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -27,7 +27,7 @@ public:
 /* *************************** Operator Overload **************************** */
 	Mobil const			&operator=(Mobil const & rhs);
 
-	void				move(int x, int y);
+	void				move(float x, float y);
 };
 
 #endif //	MOBIL_CLASS_HPP

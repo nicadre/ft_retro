@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:18:13 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 02:55:14 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 13:16:39 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,6 +16,14 @@
 #include <curses.h>
 #include <iostream>
 #include <unistd.h>
+
+#include "Missil.class.hpp"
+#include "AEntity.class.hpp"
+#include "AShip.class.hpp"
+#include "Ennemy.class.hpp"
+#include "Player.class.hpp"
+#include "Mobil.class.hpp"
+
 
 #define WIDTH 150
 #define HEIGHT 25

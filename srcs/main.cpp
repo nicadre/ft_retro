@@ -6,17 +6,16 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 12:01:10 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 14:43:42 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "general.hpp"
-#include "Missil.class.hpp"
 
-#define MS_PER_FRAME 16
+//t_ship	ship;
+//t_missil	missil;
 
-t_ship	ship;
-t_missil	missil;
+Player *		player = new Player();
 
 int		verifUser() {
 	int		cHeight;
@@ -50,47 +49,45 @@ int		inputPlayer() {
 	input = getch();
 	if (input == QUIT)
 		return(1);
-	if (input == KEY_UP && ship.y > 1)
-		ship.y -= 1.0f;
-	if (input == KEY_DOWN && ship.y < HEIGHT - 1)
-		ship.y += 1.0f;
+	if (input == KEY_UP && player->getY() > 1)
+		player->move(2.0f, (player->getY() - 1));
+	if (input == KEY_DOWN && player->getY() < HEIGHT - 1)
+		player->move(2.0f, (player->getY() + 1));
 	if (input == SPC)
 	{
-		if (missil.x == -1.0f)
-		{
-			missil.x = 2.0f;
-			missil.y = ship.y;
-		}
+		Missil *	missil = new Missil(player->getX() + 1, player->getY());
 	}
-	if (missil.x > WIDTH)
-		missil.x = -1.0f;
-	if (missil.x != -1.0f)
-		missil.x += 0.1f;
+	if (missil->x > WIDTH)
+		delete missil;
+	if (missil->x != -1.0f)
+		missil->setX(missil->getX() + 0.1f);
 	input = 0;
 	return (0);
 }
 
+void	printScreen() {
+		clear();
+		printMap();
+		mvaddch(player->getY(), player->getX(), player->getForm());
+		mvaddch(missil->getY(), missil->getX(), missil->getForm());
+		mvaddch(missil.y, missil.x, '-');
+		refresh();
+}
+
 void	loopGame() {
-	time_t  timev;
-	ship.x = 1.0f;
-	ship.y = 10.0f;
-	missil.x = -1.0f;
-	missil.y = -1.0f;
+//	ship.x = 1.0f;
+//	ship.y = 10.0f;
+//	missil.x = -1.0f;
+//	missil.y = -1.0f;
+
 	while (42) {
-		//double start = time(&timev);
 		if (verifUser() == 1)
 		  break ;
 		if (inputPlayer() == 1)
 		  break ;
 		//inputPlayer();
-		clear();
-		printMap();
-//		mvprintw(ship.y, ship.x, ">");
-		mvaddch(ship.y, ship.x, '>');
-		mvaddch(missil.y, missil.x, '-');
-		refresh();
+		printScreen();
 		usleep(DELAY);
-//		sleep(start + (MS_PER_FRAME - time(&timev));
 	}
 }
 
@@ -118,8 +115,6 @@ void	init() {
 int		main() {
 	init();
 //	initMap();
-//	std::cout << map;
-//	mvprintw(0, 0, "#");
 	loopGame();
 	endwin();
 	return (0);
