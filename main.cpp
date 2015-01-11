@@ -6,15 +6,17 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 01:45:18 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 03:49:05 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "general.hpp"
+#include "Missil.class.hpp"
 
 #define MS_PER_FRAME 16
 
 t_ship	ship;
+t_missil	missil;
 /*char	map[25][25] =
 {
 	"#########################",
@@ -26,6 +28,7 @@ int		verifUser() {
 	int		cWidth;
 	int		input;
 
+	getmaxyx(stdscr, cHeight, cWidth);
 	while (cWidth < WIDTH || cHeight < HEIGHT)
 	{
 		input = getch();
@@ -63,22 +66,36 @@ void	inputPlayer() {
 		ship.y -= 1.0f;
 	if (input == KEY_DOWN && ship.y < HEIGHT - 1)
 		ship.y += 1.0f;
-	if (input != KEY_DOWN)
-		std::cout << input;
+	if (input == SPC)
+	{
+		if (missil.x == -1.0f)
+		{
+			missil.x = 4.0f;
+			missil.y = ship.y;
+		}
+	}
+	if (missil.x > WIDTH)
+		missil.x = -1.0f;
+	if (missil.x != -1.0f)
+		missil.x += 0.1f;
+	input = 0;
 }
 
 void	loopGame() {
 	time_t  timev;
 	ship.x = 3.0f;
 	ship.y = 10.0f;
+	missil.x = -1.0f;
+	missil.y = -1.0f;
 	while (42) {
 		//double start = time(&timev);
-		/*if (verifUser() == 1)
-		  break ;*/
+		if (verifUser() == 1)
+		  break ;
 		inputPlayer();
 		clear();
 		printMap();
 		mvaddch(ship.y, ship.x, '>');
+		mvaddch(missil.y, missil.x, '-');
 		refresh();
 		usleep(DELAY);
 //		sleep(start + (MS_PER_FRAME - time(&timev));
