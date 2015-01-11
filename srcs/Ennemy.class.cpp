@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 11:15:31 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 21:12:26 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:32:22 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -56,6 +56,7 @@ void					Ennemy::move(void) {
 				while (current->entity != this)
 					current = current->next;
 				deleteEntity(current);
+				Ennemy::score++;
 				break;
 			}
 		}
@@ -68,3 +69,5 @@ void					Ennemy::move(void) {
 		}
 	}
 }
+
+int		Ennemy::score = 0;

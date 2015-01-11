@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 11:07:34 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 21:06:43 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:32:54 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -18,6 +18,9 @@
 
 class Ennemy : public AShip {
 public:
+
+	static int		score;
+
 /* ****************************** Constructors ****************************** */
 	Ennemy(void);
 	Ennemy(Ennemy const & src);

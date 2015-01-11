@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:49:36 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 20:48:53 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:35:42 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -31,7 +31,7 @@ Player::Player(std::string const name) : _name(name), _level(1) {
 
 Player::~Player(void) {
 	endwin();
-	std::cout << "You loose! " << std::endl;
+	std::cout << "You loose ! Your score is : " << Ennemy::score << ". you can do better :)" << std::endl;
 	_exit(0);
 }
 
