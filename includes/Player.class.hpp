@@ -1,38 +1,40 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   AShip.class.hpp                                    :+:      :+:    :+:   //
+//   Player.class.hpp                                   :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 10:58:48 by niccheva         ###   ########.fr       //
+//   Created: 2015/01/11 10:43:40 by niccheva          #+#    #+#             //
+//   Updated: 2015/01/11 10:59:00 by niccheva         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef		ASHIP_CLASS_HPP
-# define	ASHIP_CLASS_HPP
+#ifndef		PLAYER_CLASS_HPP
+# define	PLAYER_CLASS_HPP
 
-# include "Mobil.class.hpp"
+# include <iostream>
+# include "AShip.class.hpp"
 
-class AShip : public Mobil {
-protected:
-	int					_HP;
-	bool				_canShot;
-	virtual void		shoot(void) const = 0;
-	void				die(void);
-
+class Player : public AShip {
+private:
+	std::string				_name;
+	int						_level;
+	virtual void		shoot(void) const;
 public:
 /* ****************************** Constructors ****************************** */
-	AShip(void);
-	AShip(AShip const & src);
+	Player(void);
+	Player(Player const & src);
 
 /* ****************************** Destructors ******************************* */
-	~AShip(void);
+	~Player(void);
 
 /* *************************** Operator Overload **************************** */
-	AShip const			&operator=(AShip const & rhs);
+	Player const			&operator=(Player const & rhs);
 
+
+	std::string				getName(void) const;
+	int						getLevel(void) const;
 };
 
-#endif //	ASHIP_CLASS_HPP
+#endif //	PLAYER_CLASS_HPP
