@@ -1,38 +1,33 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   AShip.class.hpp                                    :+:      :+:    :+:   //
+//   Ennemy.class.hpp                                   :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 11:18:39 by niccheva         ###   ########.fr       //
+//   Created: 2015/01/11 11:07:34 by niccheva          #+#    #+#             //
+//   Updated: 2015/01/11 11:14:46 by niccheva         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef		ASHIP_CLASS_HPP
-# define	ASHIP_CLASS_HPP
+#ifndef		ENNEMY_CLASS_HPP
+# define	ENNEMY_CLASS_HPP
 
-# include "Mobil.class.hpp"
+# include "AShip.class.hpp"
 
-class AShip : public Mobil {
-protected:
-	int					_HP;
-	bool				_canShot;
-	virtual void		shoot(void) const = 0;
-	void				die(void);
-
+class Ennemy : public AShip {
 public:
 /* ****************************** Constructors ****************************** */
-	AShip(void);
-	AShip(AShip const & src);
+	Ennemy(void);
+	Ennemy(Ennemy const & src);
 
 /* ****************************** Destructors ******************************* */
-	~AShip(void);
+	~Ennemy(void);
 
 /* *************************** Operator Overload **************************** */
-	AShip const			&operator=(AShip const & rhs);
+	Ennemy const			&operator=(Ennemy const & rhs);
 
+	virtual void		shoot(void) const;
 };
 
-#endif //	ASHIP_CLASS_HPP
+#endif //	ENNEMY_CLASS_HPP
