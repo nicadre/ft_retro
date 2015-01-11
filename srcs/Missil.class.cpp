@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 14:35:17 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 14:41:40 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 15:05:47 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,7 +16,7 @@ Missil::Missil(void) {
 
 }
 
-Missil::Missil(Missil const & missil) {
+Missil::Missil(Missil const & missil) : Mobil(missil) {
 	*this = missil;
 	Missil::nbr++;
 }
@@ -30,7 +30,8 @@ Missil::~Missil(void) {
 }
 
 Missil &	Missil::operator=(Missil const & rhs) {
-	if (this != &missil)
+	Mobil::operator=(rhs);
+	if (this != &rhs)
 	{
 		this->_x = rhs.getX();
 		this->_y = rhs.getY();
@@ -47,11 +48,11 @@ void	Missil::setX(float const x) {
 }
 
 float	Missil::getY() const {
-	return(this->_Y);
+	return(this->_y);
 }
 
 void	Missil::setY(float const y) {
 	this->_y = y;
 }
 
-int	nbr = 0;
+int	Missil::nbr = 0;

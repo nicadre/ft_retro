@@ -1,6 +1,10 @@
-class Missil {
+#ifndef MISSIL_CLASS_HPP
+# define MISSIL_CLASS_HPP
 
 #include <iostream>
+#include "general.hpp"
+
+class Missil : public Mobil {
 
 private:
 
@@ -24,3 +28,5 @@ public:
 	static int	nbr;
 
 };
+
+#endif

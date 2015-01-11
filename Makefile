@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/10 14:11:36 by niccheva          #+#    #+#              #
-#    Updated: 2015/01/11 12:14:43 by llapillo         ###   ########.fr        #
+#    Updated: 2015/01/11 15:01:36 by llapillo         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,6 +27,7 @@ SRC				=	AEntity.class.cpp					\
 					AShip.class.cpp						\
 					Player.class.cpp					\
 					Ennemy.class.cpp					\
+					Missil.class.cpp					\
 					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
