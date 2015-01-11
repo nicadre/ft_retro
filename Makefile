@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/10 14:11:36 by niccheva          #+#    #+#              #
-#    Updated: 2015/01/11 11:18:13 by niccheva         ###   ########.fr        #
+#    Updated: 2015/01/11 15:01:36 by llapillo         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,6 +27,7 @@ SRC				=	AEntity.class.cpp					\
 					AShip.class.cpp						\
 					Player.class.cpp					\
 					Ennemy.class.cpp					\
+					Missil.class.cpp					\
 					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
@@ -39,7 +40,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creation de l'executable :\033[0;32m"
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ) -lncurses
 	@echo "\033[0;m\c"
 
 $(DOBJ)%.o: $(DSRC)%.cpp

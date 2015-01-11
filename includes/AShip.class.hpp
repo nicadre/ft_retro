@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 11:18:39 by niccheva         ###   ########.fr       //
+//   Updated: 2015/01/11 13:23:58 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -32,6 +32,11 @@ public:
 
 /* *************************** Operator Overload **************************** */
 	AShip const			&operator=(AShip const & rhs);
+
+	int		getHP(void) const ;
+	void	setHP(int const HP);
+	bool	getCanShot(void) const;
+	void	setCanShot(bool const canShot);
 
 };
 

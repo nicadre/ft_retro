@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:43:40 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 10:59:00 by niccheva         ###   ########.fr       //
+//   Updated: 2015/01/11 13:02:53 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -25,6 +25,7 @@ public:
 /* ****************************** Constructors ****************************** */
 	Player(void);
 	Player(Player const & src);
+	Player(std::string const name);
 
 /* ****************************** Destructors ******************************* */
 	~Player(void);
