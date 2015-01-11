@@ -1,38 +1,38 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   AShip.class.hpp                                    :+:      :+:    :+:   //
+//   Ennemy.class.cpp                                   :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 11:18:39 by niccheva         ###   ########.fr       //
+//   Created: 2015/01/11 11:15:31 by niccheva          #+#    #+#             //
+//   Updated: 2015/01/11 11:18:50 by niccheva         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef		ASHIP_CLASS_HPP
-# define	ASHIP_CLASS_HPP
+#include "Ennemy.class.hpp"
 
-# include "Mobil.class.hpp"
-
-class AShip : public Mobil {
-protected:
-	int					_HP;
-	bool				_canShot;
-	virtual void		shoot(void) const = 0;
-	void				die(void);
-
-public:
 /* ****************************** Constructors ****************************** */
-	AShip(void);
-	AShip(AShip const & src);
+
+Ennemy::Ennemy(void) {
+}
+
+Ennemy::Ennemy(Ennemy const & src) : AShip(src) {
+	*this = src;
+}
 
 /* ****************************** Destructors ******************************* */
-	~AShip(void);
+
+Ennemy::~Ennemy(void) {
+}
 
 /* *************************** Operator Overload **************************** */
-	AShip const			&operator=(AShip const & rhs);
 
-};
+Ennemy const			&Ennemy::operator=(Ennemy const & rhs) {
+	AShip::operator=(rhs);
+	return (*this);
+}
 
-#endif //	ASHIP_CLASS_HPP
+void					Ennemy::shoot(void) const {
+
+}
