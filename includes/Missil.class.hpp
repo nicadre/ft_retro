@@ -6,11 +6,6 @@
 
 class Missil : public Mobil {
 
-private:
-
-	float		_x;
-	float		_y;
-
 public:
 
 	Missil(void);
@@ -19,13 +14,8 @@ public:
 	~Missil(void);
 
 	Missil &	operator=(Missil const & rhs);
-
-	float	getX(void) const;
-	void	setX(float const x);
-	float	getY(void) const;
-	void	setY(float y);
-
-	static int	nbr;
+	void				setX(float const x);
+	void				setY(float const y);
 
 };
 

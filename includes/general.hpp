@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:18:13 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 16:20:34 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 18:47:32 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -38,6 +38,7 @@ typedef struct			s_entity {
 
 t_entity *		newEntity(AEntity * entityNext);
 void			addEntity(t_entity ** list, AEntity * entity);
+void			deleteEntity(t_entity * entity);
 
 void	init(void);
 void	loopGame(void);

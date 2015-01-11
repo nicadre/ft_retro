@@ -6,16 +6,21 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 15:07:52 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 14:08:42 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 18:14:52 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "AEntity.class.hpp"
 
-AEntity::AEntity(void) : _x(-1.0f), _y(0.0f), _form('x') {}
+AEntity::AEntity(void) : _x(0), _y(0), _form('x') {}
 
 AEntity::AEntity(AEntity const & src) {
 	*this = src;
+}
+
+AEntity::AEntity(float x, float y) {
+	this->_x = x;
+	this->_y = y;
 }
 
 AEntity const		&AEntity::operator=(AEntity const & rhs) {

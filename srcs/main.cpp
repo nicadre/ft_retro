@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 16:29:38 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 18:58:11 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -42,6 +42,7 @@ void	printMap() {
 }
 
 int		inputPlayer() {
+	t_entity *		curEntity;
 	int		input;
 
 	input = getch();
@@ -56,24 +57,31 @@ int		inputPlayer() {
 		Missil *	missil = new Missil(player->getX() + 1, player->getY());
 		addEntity(&entities, missil);
 	}
-//	if (missil->getX() > WIDTH)
-//		return(0);
-//	if (missil->getX() != -1.0f)
-//		missil->setX(missil->getX() + 0.1f);
-	input = 0;
+	curEntity = entities;
+	while (curEntity != NULL)
+	{
+		curEntity->entity->move(curEntity->entity->getX() + 0.1f,
+								curEntity->entity->getY());
+		curEntity = curEntity->next;
+	}
+
 	return (0);
 }
 
 void	printScreen() {
-	t_entity *		currentEntity;
+	t_entity *		curEntity;
 
-	currentEntity = entities;
+	curEntity = entities;
 	clear();
 	printMap();
 	mvaddch(player->getY(), player->getX(), player->getForm());
-	while ()
-	mvaddch(missil->getY(), missil->getX(), missil->getForm());
-//		mvaddch(missil.y, missil.x, '-');
+	while (curEntity != NULL)
+	{
+		if (curEntity->entity->getX() < 0 || curEntity->entity->getX() >= WIDTH)
+			deleteEntity(curEntity);
+		mvaddch(curEntity->entity->getY(), curEntity->entity->getX(), curEntity->entity->getForm());
+		curEntity = curEntity->next;
+	}
 	refresh();
 }
 
@@ -98,6 +106,32 @@ void	init() {
 	nodelay(stdscr, TRUE);
 	keypad(stdscr, TRUE);
 	return ;
+}
+
+void			deleteEntity(t_entity * entity) {
+	t_entity *	current;
+	t_entity *	prev;
+
+	current = entities;
+	prev = NULL;
+	while (current != entity && current != NULL)
+	{
+		prev = current;
+		current = current->next;
+	}
+	if (current == NULL)
+		return ;
+	delete current->entity;
+	if (prev == NULL)
+	{
+		entities = current->next;
+		delete current;
+	}
+	else
+	{
+		prev->next = current->next;
+		delete current;
+	}
 }
 
 t_entity *		newEntity(AEntity * entityNext) {
