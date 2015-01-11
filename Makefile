@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/10 14:11:36 by niccheva          #+#    #+#              #
-#    Updated: 2015/01/11 10:38:28 by niccheva         ###   ########.fr        #
+#    Updated: 2015/01/11 10:53:36 by niccheva         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -25,6 +25,7 @@ DINC			=	./includes/
 SRC				=	AEntity.class.cpp					\
 					Mobil.class.cpp						\
 					AShip.class.cpp						\
+					Player.class.cpp					\
 					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
