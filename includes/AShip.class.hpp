@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 19:31:25 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 20:20:49 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -19,7 +19,6 @@ class AShip : public Mobil {
 protected:
 	int					_HP;
 	bool				_canShot;
-	virtual void		shoot(void) const = 0;
 	void				die(void);
 
 public:

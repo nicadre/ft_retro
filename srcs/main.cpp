@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 19:46:01 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:05:55 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,7 +14,6 @@
 
 Player *		player = new Player();
 t_entity *		entities;
-
 int		verifUser() {
 	int		cHeight;
 	int		cWidth;

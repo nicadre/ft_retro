@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:43:40 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 19:19:45 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:06:08 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,12 +15,12 @@
 
 # include <iostream>
 # include "AShip.class.hpp"
+# include "general.hpp"
 
 class Player : public AShip {
 private:
 	std::string				_name;
 	int						_level;
-	virtual void		shoot(void) const;
 public:
 /* ****************************** Constructors ****************************** */
 	Player(void);
