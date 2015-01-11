@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 03:49:05 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 12:01:10 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -17,11 +17,6 @@
 
 t_ship	ship;
 t_missil	missil;
-/*char	map[25][25] =
-{
-	"#########################",
-	"#########################",
-	};*/
 
 int		verifUser() {
 	int		cHeight;
@@ -43,25 +38,18 @@ int		verifUser() {
 }
 
 void	printMap() {
-
-/*	for (int y = 0; y <= HEIGHT; y++) {
-		for (int x = 0; x <= WIDTH; x++) {
-			if ((y == 0 || y == HEIGHT) && (x == 0 && x == WIDTH))
-				mvprintw(y, x, "#");
-			else
-			  mvprintw(y, x, "#");
-		}
-	}*/
 	for (int x = 0; x < WIDTH; x++)
 		mvprintw(0, x, "#");
 	for (int x = 0; x < WIDTH; x++)
 		mvprintw(HEIGHT, x, "#");
 }
 
-void	inputPlayer() {
+int		inputPlayer() {
 	int		input;
 
 	input = getch();
+	if (input == QUIT)
+		return(1);
 	if (input == KEY_UP && ship.y > 1)
 		ship.y -= 1.0f;
 	if (input == KEY_DOWN && ship.y < HEIGHT - 1)
@@ -70,7 +58,7 @@ void	inputPlayer() {
 	{
 		if (missil.x == -1.0f)
 		{
-			missil.x = 4.0f;
+			missil.x = 2.0f;
 			missil.y = ship.y;
 		}
 	}
@@ -79,11 +67,12 @@ void	inputPlayer() {
 	if (missil.x != -1.0f)
 		missil.x += 0.1f;
 	input = 0;
+	return (0);
 }
 
 void	loopGame() {
 	time_t  timev;
-	ship.x = 3.0f;
+	ship.x = 1.0f;
 	ship.y = 10.0f;
 	missil.x = -1.0f;
 	missil.y = -1.0f;
@@ -91,9 +80,12 @@ void	loopGame() {
 		//double start = time(&timev);
 		if (verifUser() == 1)
 		  break ;
-		inputPlayer();
+		if (inputPlayer() == 1)
+		  break ;
+		//inputPlayer();
 		clear();
 		printMap();
+//		mvprintw(ship.y, ship.x, ">");
 		mvaddch(ship.y, ship.x, '>');
 		mvaddch(missil.y, missil.x, '-');
 		refresh();
