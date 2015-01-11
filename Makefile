@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/10 14:11:36 by niccheva          #+#    #+#              #
-#    Updated: 2015/01/10 15:21:59 by niccheva         ###   ########.fr        #
+#    Updated: 2015/01/11 10:17:22 by niccheva         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,6 +23,7 @@ DOBJ			=	./objs/
 DINC			=	./includes/
 
 SRC				=	AEntity.class.cpp					\
+					Mobil.class.cpp						\
 					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
