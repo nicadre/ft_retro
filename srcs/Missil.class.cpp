@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 14:35:17 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 18:28:12 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:22:46 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -38,6 +38,10 @@ Missil &	Missil::operator=(Missil const & rhs) {
 		this->_y = rhs.getY();
 	}
 	return *this;
+}
+void				Missil::move(void) {
+	this->setX(this->getX() + 0.1f);
+	this->setY(this->getY());
 }
 
 void				Missil::setX(float const x) {

@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 18:58:11 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 22:45:39 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -21,7 +21,7 @@ int		verifUser() {
 	int		input;
 
 	getmaxyx(stdscr, cHeight, cWidth);
-	while (cWidth < WIDTH || cHeight < HEIGHT)
+	while (cWidth < WIDTH + 1 || cHeight < HEIGHT + 1)
 	{
 		input = getch();
 		if (input == QUIT)
@@ -29,7 +29,6 @@ int		verifUser() {
 		getmaxyx(stdscr, cHeight, cWidth);
 		clear();
 		mvprintw(cHeight / 2, (cWidth - 38) / 2, "Not sufficient space for playing game.");
-		usleep(DELAY);
 	}
 	return(0);
 }
@@ -43,25 +42,44 @@ void	printMap() {
 
 int		inputPlayer() {
 	t_entity *		curEntity;
-	int		input;
+	int				input;
+	static int		nbrF = 0;
 
 	input = getch();
 	if (input == QUIT)
 		return(1);
 	if (input == KEY_UP && player->getY() > 1)
-		player->move(2.0f, (player->getY() - 1));
+		player->move(player->getX(), (player->getY() - 1));
 	if (input == KEY_DOWN && player->getY() < HEIGHT - 1)
-		player->move(2.0f, (player->getY() + 1));
+		player->move(player->getX(), (player->getY() + 1));
+	if (input == KEY_RIGHT && player->getX() < WIDTH - 1)
+		player->move((player->getX() + 1), player->getY());
+	if (input == KEY_LEFT && player->getX() > 1)
+		player->move((player->getX() - 1), player->getY());
+	if (input == PAUSE)
+	{
+		mvprintw(HEIGHT / 2, (WIDTH - 5) / 2, "Pause");
+		refresh();
+		while ((input = getch()) != PAUSE)
+		{
+		}
+	}
 	if (input == SPC)
 	{
 		Missil *	missil = new Missil(player->getX() + 1, player->getY());
 		addEntity(&entities, missil);
 	}
+	if (nbrF == ENNEMY)
+	{
+		nbrF = 0;
+		Ennemy *		ennemy = new Ennemy(149, (rand() % (HEIGHT - 1) + 1));
+		addEntity(&entities, ennemy);
+	}
+	nbrF++;
 	curEntity = entities;
 	while (curEntity != NULL)
 	{
-		curEntity->entity->move(curEntity->entity->getX() + 0.1f,
-								curEntity->entity->getY());
+		curEntity->entity->move();
 		curEntity = curEntity->next;
 	}
 
@@ -82,6 +100,7 @@ void	printScreen() {
 		mvaddch(curEntity->entity->getY(), curEntity->entity->getX(), curEntity->entity->getForm());
 		curEntity = curEntity->next;
 	}
+	mvprintw(0, 0, "Score : %d ", Ennemy::score);
 	refresh();
 }
 
@@ -95,17 +114,6 @@ void	loopGame() {
 		printScreen();
 		usleep(DELAY);
 	}
-}
-
-void	init() {
-	initscr();
-//	raw();
-	cbreak();
-	noecho();
-	curs_set(0);
-	nodelay(stdscr, TRUE);
-	keypad(stdscr, TRUE);
-	return ;
 }
 
 void			deleteEntity(t_entity * entity) {
@@ -156,7 +164,18 @@ void			addEntity(t_entity ** list, AEntity * entity) {
 	entityCurrent->next = newEntity(entity);
 }
 
+void	init() {
+	initscr();
+	raw();
+	noecho();
+	curs_set(0);
+	nodelay(stdscr, TRUE);
+	keypad(stdscr, TRUE);
+	return ;
+}
+
 int		main() {
+	srand(time(NULL));
 	init();
 	loopGame();
 	endwin();

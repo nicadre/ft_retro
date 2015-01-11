@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:43:40 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 13:02:53 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 21:06:08 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,12 +15,12 @@
 
 # include <iostream>
 # include "AShip.class.hpp"
+# include "general.hpp"
 
 class Player : public AShip {
 private:
 	std::string				_name;
 	int						_level;
-	virtual void		shoot(void) const;
 public:
 /* ****************************** Constructors ****************************** */
 	Player(void);
@@ -33,7 +33,8 @@ public:
 /* *************************** Operator Overload **************************** */
 	Player const			&operator=(Player const & rhs);
 
-
+	void					move(float x, float y);
+	void					move(void);
 	std::string				getName(void) const;
 	int						getLevel(void) const;
 };
