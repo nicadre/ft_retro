@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:24:16 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 13:23:58 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:14:09 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -38,6 +38,7 @@ public:
 	bool	getCanShot(void) const;
 	void	setCanShot(bool const canShot);
 
+	virtual void		move(void) = 0;
 };
 
 #endif //	ASHIP_CLASS_HPP

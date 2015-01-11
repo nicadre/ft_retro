@@ -6,7 +6,7 @@
 //   By: llapillo <llapillo@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 17:17:37 by llapillo          #+#    #+#             //
-//   Updated: 2015/01/11 18:58:11 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:21:53 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -60,8 +60,9 @@ int		inputPlayer() {
 	curEntity = entities;
 	while (curEntity != NULL)
 	{
-		curEntity->entity->move(curEntity->entity->getX() + 0.1f,
-								curEntity->entity->getY());
+//		curEntity->entity->move(curEntity->entity->getX() + 0.1f,
+//								curEntity->entity->getY());
+		curEntity->entity->move();
 		curEntity = curEntity->next;
 	}
 
@@ -99,8 +100,7 @@ void	loopGame() {
 
 void	init() {
 	initscr();
-//	raw();
-	cbreak();
+	raw();
 	noecho();
 	curs_set(0);
 	nodelay(stdscr, TRUE);

@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/10 15:03:32 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 18:51:40 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:12:16 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -29,7 +29,7 @@ protected:
 public:
 	virtual ~AEntity(void);
 
-	virtual void		move(float x, float y) = 0;
+	virtual void		move(void) = 0;
 
 	float				getX(void) const;
 	float				getY(void) const;

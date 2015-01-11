@@ -16,7 +16,7 @@ public:
 	Missil &	operator=(Missil const & rhs);
 	void				setX(float const x);
 	void				setY(float const y);
-
+	void				move(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:08:31 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 18:52:05 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:13:43 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -34,13 +34,6 @@ Mobil::~Mobil(void) {
 Mobil const			&Mobil::operator=(Mobil const & rhs) {
 	AEntity::operator=(rhs);
 	return (*this);
-}
-
-void				Mobil::move(float x, float y) {
-	if (x >= 0)
-		this->setX(x);
-	if (y >= 0 )
-		this->setY(y);
 }
 
 void				Mobil::setX(float const x) {

@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:43:40 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 13:02:53 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:19:45 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -33,7 +33,8 @@ public:
 /* *************************** Operator Overload **************************** */
 	Player const			&operator=(Player const & rhs);
 
-
+	void					move(float x, float y);
+	void					move(void);
 	std::string				getName(void) const;
 	int						getLevel(void) const;
 };

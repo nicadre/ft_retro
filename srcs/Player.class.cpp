@@ -6,7 +6,7 @@
 //   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/01/11 10:49:36 by niccheva          #+#    #+#             //
-//   Updated: 2015/01/11 14:35:07 by llapillo         ###   ########.fr       //
+//   Updated: 2015/01/11 19:19:01 by llapillo         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -44,12 +44,16 @@ void					Player::shoot(void) const {
 
 }
 
-/*void				Mobil::move(float x, float y) {
+void					Player::move(void) {
+
+}
+
+void					Player::move(float x, float y) {
 	if (x >= 0)
 		this->_x = x;
 	if (y >= 0 )
 		this->_y = y;
-		}*/
+}
 
 std::string				Player::getName(void) const {
 	return (this->_name);
